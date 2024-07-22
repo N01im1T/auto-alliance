@@ -15,7 +15,148 @@
   <title>Auto Alliance</title>
 </head>
 <body>
-  
+  <header class="header">
+    <div class="header-container">
+      <div class="top-bar">
+        <a
+        class="logo-container"
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="../assets/images/header/light-logo-icon.svg"
+          alt="logo-light"
+        />
+        <p class="logo-container-text">
+          <span class="company-name">AUTO ALLIANCE</span>
+          <span>Трансфер в аэропорт города&nbsp;Хабаровск</span>
+        </p>
+      </a>
+
+      <!-- <a
+        class="dark-logo-container"
+        href="http://"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img src="../assets/images/header/logo-dark.png" alt="logo-dark" />
+        <span>Трансфер в аэропорт города Москва</span>
+      </a> -->
+
+      <div class="toggle-language-container">
+        <button
+          id="toggle-btn"
+          class="toggle-btn"
+          role="switch"
+          aria-checked="true"
+        >
+          <span id="ru" class="ru" aria-selected="true">RU</span>
+          <span id="en" class="en" aria-selected="false">EN</span>
+          <span class="indicator"></span>
+        </button>
+      </div>
+
+      <div class="contact-info">
+        <div class="location">
+          <button type="button">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="location-icon"
+            >
+              <path
+                class="path-fill"
+                d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z"
+                fill="#F2F2F2"
+                stroke="#F2F2F2"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                class="path-stroke"
+                d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                stroke="#333333"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+              Хабаровск
+          </button>
+          
+        </div>
+
+        <div class="email">
+          <a
+            class="phone-link"
+            href="tel:+7999074-67-78"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +7(999)074-67-78
+          </a>
+
+          <a
+            class="email-link"
+            href="mailto:2a@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            2a@gmail.com
+          </a>
+        </div>
+
+        <button
+          id="btn-call-me-back"
+          type="button"
+          class="btn btn-secondary btn-call-me-back"
+        >
+          Перезвоните мне
+        </button>
+      </div>
+
+      <!-- <button class="mobile-burger-btn" type="button">
+        <img
+          src="../assets/images/header/burger-icon.svg"
+          alt="burger-icon"
+        />
+      </button> -->
+
+      <!-- <button class="mobile-btn-close-top-bar" type="button">
+        <img
+          src="../assets/images/header/close-icon.svg"
+          alt="close-icon"
+        />
+      </button> -->
+      </div>
+      <div class="header-main-content">
+        <div class="text-block">
+          <h1>
+            Трансфер <br>
+            в аэропорт города <br>
+            Хабаровск
+          </h1>
+          <p>Или обратно по предварительному заказу по любым направлениям легковыми автомобилями, минивэнами, микроавтобусами и автобусами.</p>
+        </div>
+        <button
+          type="button"
+          class="btn btn-primary btn-sm btn-get-transfer-cost"
+        >
+          Заказать трансфер
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="transport">
+
+  </section>
+
   <script type="module" src="/city-template/src/main.js" defer></script>
 </body>
 </html>
