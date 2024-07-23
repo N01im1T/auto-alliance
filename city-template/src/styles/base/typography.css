@@ -15,7 +15,7 @@ body {
 }
 
 h1 {
-  font-family: var(--font-extabold);
+  font-family: var(--font-extrabold);
   font-weight: var(--weight-extrabold);
   font-size: 3rem;
   color: var(--text-color);
@@ -23,11 +23,11 @@ h1 {
 }
 
 h2 {
-  font-family: var(--font-medium);
-  font-weight: var(--weight-medium);
-  font-size: 4rem;
+  font-family: var(--font-extrabold);
+  font-weight: var(--weight-extrabold);
+  font-size: 2.5rem;
   color: var(--text-color-dark);
-  line-height: 115%;
+  line-height: 110%;
 }
 
 h3 {
@@ -136,7 +136,7 @@ p {
 }
 
 .btn-control {
-  font-family: var(--font-extabold);
+  font-family: var(--font-extrabold);
   font-weight: var(--weight-extrabold);
   font-size: 1rem;
   text-wrap: nowrap;
@@ -219,4 +219,11 @@ p {
   font-weight: var(--weight-extrabold);
   font-size: 1.25rem;
   line-height: 110%;
+}
+
+/* Call to action */
+
+.call-to-action {
+  color: var(--text-color-dark);
+  text-align: center;
 }

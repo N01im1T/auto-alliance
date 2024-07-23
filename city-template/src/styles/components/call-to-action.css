@@ -1,0 +1,54 @@
+.call-to-action {
+  margin: 0 1.5rem 0.5rem 1.5rem;
+  padding: 5.75rem 0 5.75rem 0;
+}
+
+.call-to-action-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.loupe-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  background-color: #EDF1F4;
+  
+  min-width: 94px;
+  min-height: 94px;
+  border-radius: 2rem;
+}
+
+.loupe-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background: linear-gradient(to bottom, rgba(215, 225, 227, 0.2), rgba(123, 123, 123, 0.2));
+  
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+
+  pointer-events: none;
+}
+
+.call-to-action-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  max-width: 544px;
+}
+
+.call-to-action-text h2 {
+  max-width: 528px;
+}
