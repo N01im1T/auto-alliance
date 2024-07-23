@@ -33,9 +33,9 @@ h2 {
 h3 {
   font-family: var(--font-semibold);
   font-weight: var(--weight-semibold);
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   color: var(--text-color-dark);
-  line-height: 115%;
+  line-height: 110%;
 }
 
 a {
@@ -82,4 +82,41 @@ p {
 
 .text-block p {
   font-size: 1.25rem;
+}
+
+/* Transport */
+
+.transport {
+  color: var(--text-color-dark);
+}
+
+.passenger-amount,
+.luggage-amount {
+  font-size: 1.25rem;
+}
+
+.transport-quality {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  line-height: 110%;
+}
+
+.transport-description {
+  line-height: 120%;
+}
+
+.transport-price {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 2rem;
+  line-height: 110%;
+  text-wrap: nowrap;
+}
+
+.transport-price span:first-child {
+  font-family: var(--font-extrabold);
+  font-weight: var(--weight-extrabold);
+  font-size: 1.25rem;
+  line-height: 110%;
 }

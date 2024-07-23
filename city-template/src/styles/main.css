@@ -3,7 +3,10 @@
 @import "./base/variables.css";
 
 @import "./components/header.css";
+@import "./components/transport.css";
 @import "./components/footer.css";
+
+/* @import "@glidejs/glide/dist/css/glide.core.css"; */
 
 body {
   background-color: var(--background-color);
