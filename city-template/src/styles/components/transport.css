@@ -52,7 +52,7 @@
 .controls-container {
   display: flex;
   flex-direction: row;
-  column-gap: 3rem;
+  column-gap: 0.5rem;
 }
 
 .transport-card-goods {

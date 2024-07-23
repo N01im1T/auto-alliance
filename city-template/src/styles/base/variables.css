@@ -1,7 +1,32 @@
 :root {
+  --primary-color: #1B1B1B;
+  --secondary-color: #ffffff;
   --background-color: #ffffff;
   --text-color: #f2f2f2;
-  --text-color-dark: #1B1B1B;  
+  --text-color-dark: #1B1B1B;
+
+  --btn-text-color-default-primary: #FFFFFF;
+  --btn-color-default-primary: #333333;
+  --btn-color-hover-primary: #4f4f4f;
+  --btn-color-click-primary: #828282;
+  --btn-color-disable-primary: #e0e0e0;
+  --btn-text-color-disable-primary: #F2F2F2;
+  --btn-color-default-secondary: #f2f2f2;
+  --btn-color-click-secondary: #222222;
+  --btn-color-disable-secondary: #333333;
+  --btn-color-default-secondary-black: #222222;
+  --btn-color-click-secondary-black: #f2f2f2;
+  --btn-color-disable-secondary-black: #828282;
+  --btn-text-color-default-secondary: #f2f2f2;
+  --btn-text-color-disable-secondary: #333333;
+  --btn-text-color-default-secondary-black: #222222;
+  --btn-text-color-disable-secondary-black: #828282;
+  --toggle-btn-click: #4f4f4f;
+  --toggle-btn-disable: #828282;
+  --btn-control-choosed: #828282;
+
+  --contact-info-click: #4f4f4f;
+  --contact-info-disable: #333333;
 
   --font-regular: "Inter", sans-serif;
   --font-medium: "Inter", sans-serif;

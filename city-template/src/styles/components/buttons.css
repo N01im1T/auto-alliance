@@ -1,0 +1,209 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 59px;
+  border-radius: 1rem;
+
+  transition:
+    background-color 0.1s ease,
+    border-color 0.1s ease,
+    border-width 0.1s ease-in-out;
+}
+
+/* Primary buttons */
+
+.btn-primary {
+  background-color: var(--btn-color-default-primary);
+
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-color-hover-primary);
+}
+
+.btn-primary:active {
+  background-color: var(--btn-color-click-primary);
+}
+
+.btn-primary:disabled {
+  background-color: var(--btn-color-disable-primary);
+
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-sm {
+  width: 206px;
+  min-width: 206px;
+}
+
+.btn-lg {
+  max-width: 189px;
+  width: 100%;
+}
+
+/* Secondary buttons */
+
+.btn-secondary {
+  background-color: transparent;
+
+  height: 59px;
+  border: 1px solid var(--btn-color-default-secondary);
+}
+
+.btn-secondary:not(:disabled):hover {
+  border: 2px solid var(--btn-color-default-secondary);
+
+  transition: border 0.1s;
+}
+
+.btn-secondary:not(:disabled):active {
+  border-color: var(--btn-color-click-secondary);
+}
+
+.btn-secondary:disabled {
+  border-color: var(--btn-color-disable-secondary);
+
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-secondary.black {
+  border-color: var(--btn-color-default-secondary-black);
+}
+
+.btn-secondary.black:not(:disabled):hover {
+  border-width: 2px;
+  border-color: var(--btn-color-default-secondary-black);
+}
+
+.btn-secondary.black:not(:disabled):active {
+  border-color: var(--btn-color-click-secondary-black);
+}
+
+.btn-secondary.black:disabled {
+  border-color: var(--btn-color-disable-secondary-black);
+
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.btn-text-me {
+  width: 148px;
+  min-width: 148px;
+}
+
+.btn-call-me-back {
+  width: 216px;
+  min-width: 216px;
+}
+
+.btn-order {
+  max-width: 123px;
+  width: 100%;
+}
+
+/* Toggle language button */
+
+.toggle-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  background-color: transparent;
+
+  width: 85px;
+  height: 37px;
+  border: none;
+
+  transition: all 0.3s ease-in-out;
+}
+
+.toggle-btn [aria-selected="true"] {
+  padding: 0.5rem;
+  border: 1px solid;
+  border-radius: 1rem;
+}
+
+.toggle-btn [aria-selected="true"]:not(:disabled):hover {
+  border-width: 2px;
+}
+
+.toggle-btn [aria-selected="true"]:not(:disabled):active {
+  border-color: var(--toggle-btn-click);
+}
+
+.toggle-btn:disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+.toggle-btn:disabled [aria-selected="true"] {
+  border: 2px solid;
+  border-color: var(--toggle-btn-disable);
+}
+
+#ru[aria-selected="true"] ~ {
+  transform: translateX(100%);
+}
+
+#en[aria-selected="true"] ~ {
+  transform: translateX(0);
+}
+
+/* Choose city button */
+
+.location button {
+  background-color: transparent;
+
+  border: none;
+
+  transition: background-color 0.1s ease;
+}
+
+/* Mobile Buttons */
+
+.mobile-burger-btn {
+  display: none;
+
+  background-color: transparent;
+
+  width: 32px;
+  height: 32px;
+  border: none;
+
+  transition: transform 0.3s ease;
+}
+
+.mobile-burger-btn:active {
+  transform: scale(1.1);
+}
+
+.mobile-btn-close-top-bar {
+  display: none;
+
+  background-color: transparent;
+
+  width: 32px;
+  height: 32px;
+  border: none;
+}
+
+/* Slider control buttons */
+
+.btn-control {
+  background-color: transparent;
+
+  min-width: 129px;
+  min-height: 67px;
+  border: none;
+}
+
+.btn-control.active {
+  border-bottom: 2px solid var(--btn-control-choosed);
+}

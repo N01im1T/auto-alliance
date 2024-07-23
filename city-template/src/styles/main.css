@@ -5,8 +5,7 @@
 @import "./components/header.css";
 @import "./components/transport.css";
 @import "./components/footer.css";
-
-/* @import "@glidejs/glide/dist/css/glide.core.css"; */
+@import "./components/buttons.css";
 
 body {
   background-color: var(--background-color);

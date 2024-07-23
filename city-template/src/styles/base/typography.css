@@ -48,6 +48,106 @@ p {
   overflow-wrap: break-word;
 }
 
+/* Buttons */
+
+.btn-primary,
+.btn-secondary {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1rem;
+  line-height: 120%;
+}
+
+.btn-primary {
+  color: var(--btn-text-color-default-primary);
+}
+
+.btn-primary:disabled {
+  color: var(--btn-text-color-disable-primary);
+}
+
+.btn-secondary {
+  color: var(--btn-text-color-default-secondary);
+}
+
+.btn-secondary:disabled {
+  color: var(--btn-text-color-disable-secondary);
+}
+
+.btn-secondary.black {
+  color: var(--btn-text-color-default-secondary-black);
+}
+
+.btn-secondary.black:disabled {
+  color: var(--btn-text-color-disable-secondary-black);
+}
+
+.toggle-btn {
+  font-family: var(--font-semibold);
+  font-weight: var(--weight-semibold);
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.toggle-btn:disabled {
+  color: var(--toggle-btn-disable);
+}
+
+.location button {
+  font-family: var(--font-semibold);
+  font-weight: var(--weight-semibold);
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  line-height: 130%;
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+}
+
+.location button:active .path-fill {
+  fill: var(--contact-info-click);
+  stroke: var(--contact-info-click);
+}
+
+.location button.disabled .path-fill {
+  fill: var(--contact-info-disable);
+  stroke: var(--contact-info-disable);
+
+  cursor: not-allowed;
+}
+
+.location button.disabled .path-stroke {
+  stroke: var(--contact-info-click);
+}
+
+.location button:not(.disabled):hover {
+  text-decoration: none;
+}
+
+.location button:active {
+  color: var(--contact-info-click);
+  text-decoration: none;
+}
+
+.location button.disabled {
+  color: var(--contact-info-disable);
+  text-decoration: none;
+
+  cursor: not-allowed;
+}
+
+.btn-control {
+  font-family: var(--font-extabold);
+  font-weight: var(--weight-extrabold);
+  font-size: 1rem;
+  text-wrap: nowrap;
+  color: var(--primary-color);
+  line-height: 120%;
+}
+
+.btn-control.active {
+  color: var(--btn-control-choosed);
+}
+
 /* Header */
 
 .header {
