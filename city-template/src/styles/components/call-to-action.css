@@ -48,3 +48,8 @@
 
   max-width: 590px;
 }
+
+.call-to-action-text p {
+  max-width: 544px;
+  width: 100%;
+}
