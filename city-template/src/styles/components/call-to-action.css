@@ -46,9 +46,5 @@
   align-items: center;
   gap: 1rem;
 
-  max-width: 544px;
-}
-
-.call-to-action-text h2 {
-  max-width: 528px;
+  max-width: 590px;
 }

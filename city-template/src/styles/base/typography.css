@@ -227,3 +227,57 @@ p {
   color: var(--text-color-dark);
   text-align: center;
 }
+
+.call-to-action-text p {
+  font-size: 1.25rem;
+}
+
+/* Additional services */
+
+.additional-services-slider {
+  color: var(--text-color);
+}
+
+.services-slide-content h2 {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  color: #BDBDBD;
+}
+
+.service-slide-text h3 {
+  font-family: var(--font-extrabold);
+  font-weight: var(--weight-extrabold);
+  font-size: 2.25rem;
+  color: var(--text-color);
+}
+
+.service-slide-text p {
+  font-size: 1.25rem;
+}
+
+.additional-services-wrapper {
+  color: var(--text-color-dark);
+}
+
+.aircraft-rental-wrapper h3,
+.helicopter-rental-wrapper h3 {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+}
+
+.vip-flight-wrapper h3 {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  color: var(--text-color);
+}
+
+.vip-flight-img-text {
+  font-family: var(--font-black);
+  font-weight: var(--weight-black);
+  font-size: 17rem;
+  color: #252525;
+  text-align: center;
+  text-wrap: nowrap;
+  line-height: 110%;
+}

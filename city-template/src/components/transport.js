@@ -14,7 +14,7 @@ const transport = () => {
       });
   };
 
-  const transportSlider = new Glide(".glide", {
+  const transportSlider = new Glide(".transport-glide", {
     type: "slider",
     startAt: 0,
     focusAt: "center",

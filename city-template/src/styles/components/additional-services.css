@@ -1,0 +1,133 @@
+.additional-services {
+  margin: 0 1.5rem 0.5rem 1.5rem;
+}
+
+.additional-services-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.additional-services-slider {
+  background-image: url("/city-template/public/assets/images/additional-services/additional-services-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border-radius: 2rem;
+
+  padding: 3rem;
+}
+
+.additional-services-glide {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.25rem;
+}
+
+.services-slide-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 9.25rem;
+}
+
+.services-slide-content h2 {
+  max-width: 291px;
+  width: 100%;
+}
+
+.service-slide-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+
+  max-width: 594px;
+  width: 100%;
+}
+
+.additional-services-slider-controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.glide-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+
+  border: none;
+}
+
+.glide-bullet {
+  min-width: 0.75rem;
+  min-height: 0.75rem;
+  border: none;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: var(--btn-control-choosed);
+}
+
+.additional-services-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  column-gap: 0.5rem;
+}
+
+.aircraft-rental-wrapper {
+  background-image: url("/city-template/public/assets/images/additional-services/aircraft-rental-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.helicopter-rental-wrapper {
+  background-image: url("/city-template/public/assets/images/additional-services/helicopter-rental-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.vip-flight-wrapper {
+  background-image: url("/city-template/public/assets/images/additional-services/vip-flight-bg-img.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.aicraft-rental,
+.vip-flight {
+  max-width: 635px;
+  width: 100%;
+}
+
+.helicopter-rental {
+  max-width: 586px;
+  width: 100%;
+}
+
+.aircraft-rental-wrapper,
+.helicopter-rental-wrapper,
+.vip-flight-wrapper {
+  max-height: 416px;
+  min-height: 416px;
+
+  padding: 3rem;
+  border-radius: 1.5rem;
+}
+
+.aircraft-rental-text,
+.helicopter-rental-text,
+.vip-flight-text {
+  padding: 1.5rem;
+}
