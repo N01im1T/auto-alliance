@@ -116,6 +116,13 @@
   width: 100%;
 }
 
+.vip-flight-img-text {
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
 .aircraft-rental-wrapper,
 .helicopter-rental-wrapper,
 .vip-flight-wrapper {
