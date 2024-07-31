@@ -339,3 +339,80 @@ p {
 .awards-slider-content p {
   line-height: 110%;
 }
+
+/* Footer */
+
+.footer {
+  font-family: var(--font-regular);
+  font-weight: var(--weight-regular);
+  font-size: 1.25rem;
+  color: var(--text-color-dark);
+}
+
+.contacts h3,
+.feedback h3,
+.schedule h3,
+.be-our-partner h3 {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+  line-height: 110%;
+}
+
+.contacts a,
+.feedback a,
+.social-media-links a {
+  color: var(--text-color-dark);
+  line-height: 130%;
+}
+
+.schedule p {
+  line-height: 130%;
+}
+
+.number,
+.content {
+  text-wrap: nowrap;
+}
+
+.number,
+.feedback-link {
+  font-family: var(--font-semibold);
+  font-weight: var(--weight-semibold);
+  line-height: 130%;
+}
+
+.content,
+.social-media-link {
+  text-decoration: underline;
+  text-underline-offset: 3.5px;
+  line-height: 130%;
+}
+
+.content:hover,
+.social-media-link:hover {
+  text-decoration: none;
+}
+
+.company-link {
+  font-family: var(--font-regular);
+  font-weight: var(--weight-regular);
+  font-size: 1.5rem;
+  color: var(--prymary-color);
+}
+
+.company-link:hover {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+}
+
+.design-by {
+  font-family: var(--font-regular);
+  font-weight: var(--weight-regular);
+  font-size: 1.25rem;
+  line-height: 130%;
+}
+
+.special-symbols svg {
+  vertical-align: middle;
+}
