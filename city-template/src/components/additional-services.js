@@ -28,8 +28,8 @@ const additionalServices = () => {
     updateActiveBullet(activeIndex);
   });
 
-  bullets.forEach((button, index) => {
-      button.addEventListener('click', () => {
+  bullets.forEach((bullet, index) => {
+      bullet.addEventListener('click', () => {
           updateActiveBullet(index);
       });
   });

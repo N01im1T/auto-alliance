@@ -282,3 +282,60 @@ p {
   text-wrap: nowrap;
   line-height: 110%;
 }
+
+/* About company */
+
+.about-company-text,
+.about-company-text h3 {
+  color: var(--secondary-color);
+}
+
+.about-company-awards-slider,
+.about-company-awards-glide h3 {
+  color: var(--primary-color);
+}
+
+.about-company-text h3,
+.about-company-awards-glide h3 {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1.5rem;
+}
+
+.about-company-text p {
+  line-height: 130%;
+}
+
+.highlight-number,
+.highlight-symbol {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 6rem;
+  line-height: 110%;
+}
+
+.advantage-item p {
+  font-family: var(--font-medium);
+  font-weight: var(--weight-medium);
+  font-size: 1.5rem;
+}
+
+.awards-slider-content a {
+  font-family: var(--font-bold);
+  font-weight: var(--weight-bold);
+  font-size: 1.25rem;
+  line-height: 130%;
+  color: var(--text-color-dark);
+  text-decoration: underline dotted;
+  text-underline-offset: 3.5px;
+}
+
+.awards-slider-content a:hover {
+  text-decoration: none;
+
+  transition: text-decoration 0.4s ease;
+}
+
+.awards-slider-content p {
+  line-height: 110%;
+}
