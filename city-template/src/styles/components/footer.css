@@ -101,7 +101,9 @@
 }
 
 .company-link {
-  min-width: 170px;
+  display: inline-block;
+
+  width: 160px;
 }
 
 .footer-bottom footer:first-of-type {

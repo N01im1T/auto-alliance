@@ -399,6 +399,7 @@ p {
   font-weight: var(--weight-regular);
   font-size: 1.5rem;
   color: var(--prymary-color);
+  text-wrap: nowrap;
 }
 
 .company-link:hover {
