@@ -25,6 +25,13 @@
   --toggle-btn-disable: #828282;
   --btn-control-choosed: #828282;
 
+  --input-primary-color: #f2f2f2;
+  --input-secondary-color: #333333;
+  --input-minor-color: #828282;
+  --input-black-text: #222222;
+  --input-error: #eb5757;
+  --input-disable: #bdbdbd;
+
   --contact-info-click: #4f4f4f;
   --contact-info-disable: #333333;
 

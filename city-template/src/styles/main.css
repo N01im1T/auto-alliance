@@ -9,6 +9,8 @@
 @import "./components/about-company.css";
 @import "./components/footer.css";
 @import "./components/buttons.css";
+@import "./components/inputs.css";
+@import "./components/modals.css";
 
 body {
   background-color: var(--background-color);

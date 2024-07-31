@@ -207,3 +207,16 @@
 .btn-control.active {
   border-bottom: 2px solid var(--btn-control-choosed);
 }
+
+/* Madal buttons */
+
+.reply-form > .btn-call-me-back,
+.reply-form > .btn-call-me-back {
+  max-width: 588px;
+  width: 100%;
+}
+
+.btn-calculate-price {
+  max-width: 767px;
+  width: 100%;
+}

@@ -38,6 +38,14 @@ h3 {
   line-height: 110%;
 }
 
+h4 {
+  font-family: var(--font-medium);
+  font-weight: var(--weight-medium);
+  font-size: 2.25rem;
+  color: var(--text-color-dark);
+  line-height: 115%;
+}
+
 a {
   color: var(--link);
   text-decoration: none;
@@ -146,6 +154,66 @@ p {
 
 .btn-control.active {
   color: var(--btn-control-choosed);
+}
+
+/* Inputs */
+
+.input-container {
+  font-family: var(--font-regular);
+  font-weight: var(--weight-regular);
+}
+
+.input-container.disabled > .floating-label {
+  color: var(--input-disable);
+}
+
+.styled-input {
+  font-size: 1rem;
+}
+
+.styled-input:focus {
+  caret-color: var(--input-minor-color);
+}
+
+.styled-input:focus + .floating-label,
+.styled-input:not(:placeholder-shown) + .floating-label {
+  font-size: 10px;
+  color: var(--input-black-text);
+  caret-color: var(--input-black-text);
+}
+
+.styled-input.invalid:not(:placeholder-shown) + .floating-label {
+  color: var(--input-error);
+}
+
+.styled-input .invalid {
+  color: var(--input-error);
+  font-size: 10px;
+}
+
+.floating-label {
+  font-size: 1rem;
+  color: var(--input-minor-color);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Modals */
+
+.modal-container h4,
+.modal-container p {
+  color: var(--text-color-dark);
+  text-align: left;
+}
+
+.modal-container p a {
+  color: var(--text-color-dark);
+  text-decoration: underline;
+  text-underline-offset: 3.5px;
+}
+
+.modal-container p a:hover {
+  text-decoration: none;
 }
 
 /* Header */

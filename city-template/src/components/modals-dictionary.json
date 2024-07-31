@@ -1,0 +1,30 @@
+{
+  "en": {
+    "address": "How can we address you?",
+    "addressError": "How can we address you? (incorrect input)",
+    "email": "Your e-mail",
+    "emailError": "Your e-mail (incorrect input)",
+    "phone": "Your phone number",
+    "phoneError": "Your phone number (incorrect input)",
+    "message": "Your message",
+    "callMeBack": "Call me back",
+    "becomePartner": "Become our partner",
+    "transferCost": "Get the cost of the transfer",
+    "calculateCost": "Calculate cost",
+    "personalDataProcessing": "By clicking the button, you consent to the <a href='' target='_blank' rel='noopener noreferrer'>processing of personal data</a>"
+  },
+  "ru": {
+    "address": "Как к вам обращаться?",
+    "addressError": "Как к вам обращаться? (не верный ввод)",
+    "email": "Ваша электронная почта",
+    "emailError": "Ваша электронная почта (не верный ввод)",
+    "phone": "Ваш номер телефона",
+    "phoneError": "Ваш номер телефона (не верный ввод)",
+    "message": "Ваше сообщение",
+    "callMeBack": "Перезвоните мне",
+    "becomePartner": "Стать нашим партнером",
+    "transferCost": "Получите расчет стоимости трансфера",
+    "calculateCost": "Рассчитать стоимость",
+    "personalDataProcessing": "Нажимая на кнопку, вы даете согласие на <a href='' target='_blank' rel='noopener noreferrer'>обработку персональных данных</a>"
+  }
+}
