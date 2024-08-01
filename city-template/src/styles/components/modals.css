@@ -130,6 +130,39 @@
   max-width: 400px;
 }
 
+/* Choose city modal */
+
+.modal-container.choose-city-modal {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  max-width: 289px;
+  width: 100%;
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+.modal-container.choose-city-modal h4 {
+  max-width: 230px;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.modal-container.choose-city-modal .close-icon {
+  top: 2rem;
+  right: 1rem;
+}
+
+.city-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+.check-mark-color {
+  transition: stroke 0.3s ease-out;
+}
+
 @media (max-width: 900px) {
   .modal-container:has(.calculator-form) {
     max-width: 720px;

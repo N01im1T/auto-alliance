@@ -10,8 +10,11 @@
     "callMeBack": "Call me back",
     "becomePartner": "Become our partner",
     "transferCost": "Get the cost of the transfer",
+    "chooseCity": "Choose your city",
+    "choose": "Choose",
     "calculateCost": "Calculate cost",
-    "personalDataProcessing": "By clicking the button, you consent to the <a href='' target='_blank' rel='noopener noreferrer'>processing of personal data</a>"
+    "personalDataProcessing": "By clicking the button, you consent to the <a href='' target='_blank' rel='noopener noreferrer'>processing of personal data</a>",
+    "chooseCityError": "Please, choose your city"
   },
   "ru": {
     "address": "Как к вам обращаться?",
@@ -24,7 +27,10 @@
     "callMeBack": "Перезвоните мне",
     "becomePartner": "Стать нашим партнером",
     "transferCost": "Получите расчет стоимости трансфера",
+    "chooseCity": "Выберете ваш город",
+    "choose": "Выбрать",
     "calculateCost": "Рассчитать стоимость",
-    "personalDataProcessing": "Нажимая на кнопку, вы даете согласие на <a href='' target='_blank' rel='noopener noreferrer'>обработку персональных данных</a>"
+    "personalDataProcessing": "Нажимая на кнопку, вы даете согласие на <a href='' target='_blank' rel='noopener noreferrer'>обработку персональных данных</a>",
+    "chooseCityError": "Пожалуйста, выберете ваш город"
   }
 }

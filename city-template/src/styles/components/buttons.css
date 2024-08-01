@@ -220,3 +220,34 @@
   max-width: 767px;
   width: 100%;
 }
+
+.btn-choose-city {
+  max-width: 257px;
+  width: 100%;
+}
+
+.city-item-button {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 1rem;
+
+  background-color: transparent;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+.city-item-button:hover .check-mark-color {
+  stroke: var(--minor-color);
+}
+
+.city-item-button:active .check-mark-color {
+  stroke: var(--btn-choose-city-click);
+}
+
+.city-item.selected > .city-item-button .check-mark-color {
+  stroke: var(--btn-choose-city-active);
+}
