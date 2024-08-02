@@ -17,8 +17,6 @@
   row-gap: 3rem;
 
   background-color: var(--primary-color);
-
-  min-width: 850px;
   padding: 3rem;
   border-radius: 2rem;
 }
@@ -54,7 +52,7 @@
 .about-company-awards-slider {
   position: relative;
   display: flex;
-  flex: 1 1 350px;
+  flex: 1 1 374px;
   flex-direction: column;
   align-items: flex-start;
   row-gap: 3rem;
@@ -91,7 +89,7 @@
 .awards-slider-slide {
   display: flex;
   flex-direction: column;
-  row-gap: 0.5rem;
+  row-gap: 2rem;
 }
 
 .awards-slider-content {
@@ -136,4 +134,25 @@
 
 .glide-bullet-dark.active {
   background-color: var(--btn-control-choosed);
+}
+
+@media (max-width: 1280px) {
+  .about-company-text {
+    flex: 1 1 720px;
+  }
+
+  .about-company-advantages {
+    flex-direction: column;
+  }
+
+  .about-company-awards-slider {
+    max-height: 42.25rem;
+    min-width: 374px;
+  }
+}
+
+@media (max-width: 850px) {
+  .about-company-container {
+    flex-direction: column;
+  }
 }

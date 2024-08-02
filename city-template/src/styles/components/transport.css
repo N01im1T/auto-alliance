@@ -39,9 +39,10 @@
 
 .transport-glide-controls {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   column-gap: 3rem;
+  row-gap: 1rem;
 }
 
 .transport-glide-controls h3 {
@@ -137,5 +138,12 @@
 @media (min-width: 1920px) {
   .transport-card-container {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 1280px) {
+  .transport-glide-controls h3 {
+    max-width: none;
+    width: 100%;
   }
 }

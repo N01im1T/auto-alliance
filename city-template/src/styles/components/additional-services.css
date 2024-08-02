@@ -79,7 +79,6 @@
 
 .additional-services-wrapper {
   display: flex;
-  flex-direction: row;
   align-items: flex-start;
   column-gap: 0.5rem;
 }
@@ -105,7 +104,7 @@
   background-repeat: no-repeat;
 }
 
-.aicraft-rental,
+.aircraft-rental,
 .vip-flight {
   max-width: 635px;
   width: 100%;
@@ -117,6 +116,8 @@
 }
 
 .vip-flight-img-text {
+  align-self: center;
+
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -137,4 +138,55 @@
 .helicopter-rental-text,
 .vip-flight-text {
   padding: 1.5rem;
+}
+
+@media (max-width: 1440px) {
+  .vip-flight-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+
+  .aicraft-rental,
+  .helicopter-rental,
+  .vip-flight {
+    max-width: 459px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  .aircraft-rental,
+  .helicopter-rental,
+  .vip-flight {
+    max-width: 405px;
+    min-width: 280px;
+    width: 100%;
+  }
+
+  .aircraft-rental-wrapper h3,
+  .vip-flight-wrapper h3 {
+    max-width: 150px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .additional-services-wrapper {
+    flex-wrap: wrap;
+  }
+
+  .aircraft-rental,
+  .helicopter-rental,
+  .vip-flight {
+    max-width: 422px;
+    min-width: 280px;
+    width: 100%;
+  }
+
+  .aircraft-rental-wrapper h3,
+  .vip-flight-wrapper h3 {
+    max-width: none;
+    width: 100%;
+  }
 }

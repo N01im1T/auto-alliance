@@ -255,7 +255,7 @@
   stroke: var(--btn-choose-city-active);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
   /* Mobile Buttons */
 
   .top-bar.mobile-bar.active > .mobile-burger-btn {
