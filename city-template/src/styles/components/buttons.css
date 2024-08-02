@@ -126,16 +126,16 @@
 
 .toggle-btn [aria-selected="true"] {
   padding: 0.5rem;
-  border: 1px solid;
+  outline: 1px solid;
   border-radius: 1rem;
 }
 
 .toggle-btn [aria-selected="true"]:not(:disabled):hover {
-  border-width: 2px;
+  outline: 2px solid;
 }
 
 .toggle-btn [aria-selected="true"]:not(:disabled):active {
-  border-color: var(--toggle-btn-click);
+  outline-color: var(--toggle-btn-click);
 }
 
 .toggle-btn:disabled {
@@ -144,8 +144,8 @@
 }
 
 .toggle-btn:disabled [aria-selected="true"] {
-  border: 2px solid;
-  border-color: var(--toggle-btn-disable);
+  outline: 2px solid;
+  outline-color: var(--toggle-btn-disable);
 }
 
 #ru[aria-selected="true"] ~ {
