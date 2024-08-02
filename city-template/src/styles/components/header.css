@@ -64,13 +64,6 @@
   transition: all 0.4s ease-in;
 }
 
-.location button {
-  display: flex;
-  align-items: center;
-
-  transition: all 0.3s ease;
-}
-
 .location-icon {
   margin-right: 8px;
 }

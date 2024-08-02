@@ -159,12 +159,16 @@
 /* Choose city button */
 
 .location button {
+  display: flex;
+  align-items: center;
+
   background-color: transparent;
 
   border: none;
 
-  transition: background-color 0.1s ease;
+  transition: background-color 0.2s ease;
 }
+
 
 /* Mobile Buttons */
 
@@ -208,7 +212,7 @@
   border-bottom: 2px solid var(--btn-control-choosed);
 }
 
-/* Madal buttons */
+/* Modal buttons */
 
 .reply-form > .btn-call-me-back,
 .reply-form > .btn-call-me-back {
