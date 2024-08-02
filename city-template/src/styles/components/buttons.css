@@ -169,7 +169,6 @@
   transition: background-color 0.2s ease;
 }
 
-
 /* Mobile Buttons */
 
 .mobile-burger-btn {
@@ -254,4 +253,23 @@
 
 .city-item.selected > .city-item-button .check-mark-color {
   stroke: var(--btn-choose-city-active);
+}
+
+@media (max-width: 768px) {
+  /* Mobile Buttons */
+
+  .top-bar.mobile-bar.active > .mobile-burger-btn {
+    display: none;
+  }
+
+  .top-bar.mobile-bar.deactive > .mobile-burger-btn {
+    display: flex;
+  }
+
+  .mobile-bar > .mobile-btn-close-top-bar {
+    position: absolute;
+    display: block;
+    top: 2.5rem;
+    right: 1.5rem;
+  }
 }
