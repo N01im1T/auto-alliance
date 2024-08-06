@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  overflow: hidden;
+  overflow: auto;
 
   background-color: rgba(0, 0, 0, 0.4);
 
@@ -133,6 +133,7 @@
 /* Choose city modal */
 
 .modal-container.choose-city-modal {
+  position: relative;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
@@ -161,6 +162,13 @@
 
 .check-mark-color {
   transition: stroke 0.3s ease-out;
+}
+
+@media (max-height: 667px) {
+  .modal-container.choose-city-modal {
+    top: 63%;
+    right: 50%;
+  }
 }
 
 @media (max-width: 900px) {
