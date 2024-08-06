@@ -87,6 +87,7 @@
 
   background-color: var(--background-color);
 
+  max-width: 428px;
   padding: 1.5rem;
   border-radius: 1.5rem;
 }
