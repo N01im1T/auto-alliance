@@ -199,6 +199,18 @@
 
 /* Slider control buttons */
 
+.arrow {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+
+  min-width: 25px;
+  min-height: 25px;
+  border: none;
+}
+
 .btn-control {
   background-color: transparent;
 
@@ -271,5 +283,29 @@
     display: block;
     top: 2.5rem;
     right: 1.5rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .btn-control {
+    min-width: 110px;
+    min-height: 50px;
+  }
+}
+
+@media screen and (max-device-width: 800px) {
+  .arrow {
+    display: flex;
+  }
+
+  .btn-control {
+    min-width: none;
+    min-height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-order {
+    max-width: none;
   }
 }

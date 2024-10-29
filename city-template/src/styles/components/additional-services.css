@@ -174,12 +174,14 @@
 @media (max-width: 900px) {
   .additional-services-wrapper {
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   }
 
   .aircraft-rental,
   .helicopter-rental,
   .vip-flight {
-    max-width: 422px;
+    max-width: none;
     min-width: 280px;
     width: 100%;
   }
@@ -189,4 +191,36 @@
     max-width: none;
     width: 100%;
   }
+}
+
+@media (max-width: 500px) {
+  .additional-services {
+    margin: 0 0.5rem 0.5rem;
+  }
+
+  .additional-services-slider {
+    padding: 3rem 1.5rem;
+  }
+
+  .services-slide-content {
+    row-gap: 4rem;
+  }
+
+  .aircraft-rental-wrapper,
+  .helicopter-rental-wrapper,
+  .vip-flight-wrapper {
+    padding: 1.5rem;
+  }
+
+  .vip-flight-wrapper {
+    row-gap: 5rem;
+  }
+
+  .aircraft-rental-wrapper h3,
+  .helicopter-rental-wrapper h3,
+  .vip-flight-wrapper h3 {
+    max-width: 160px;
+    width: 100%;
+  }
+  
 }

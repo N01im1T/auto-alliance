@@ -152,7 +152,22 @@
 }
 
 @media (max-width: 850px) {
+  .about-company-awards-slider {
+    max-width: none;
+  }
+  
   .about-company-container {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .about-company {
+    margin: 0 0.5rem 0.5rem;
+  }
+
+  .about-company-awards-slider {
+    min-width: 300px;
+    padding: 3rem 1.5rem;
   }
 }

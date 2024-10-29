@@ -53,3 +53,9 @@
   max-width: 544px;
   width: 100%;
 }
+
+@media (max-width: 500px) {
+  .call-to-action {
+    margin: 0 0.5rem 0.5rem;
+  }
+}

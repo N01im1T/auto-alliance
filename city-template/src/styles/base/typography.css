@@ -562,3 +562,42 @@ p {
     font-size: 11rem;
   }
 }
+
+@media (max-width: 800px) {
+  /* Transport */
+  
+  .transport-glide-controls h3 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 500px) {
+  h1, h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  /* Additional services */
+
+  .service-slide-text h3 {
+    font-size: 1.5rem;
+  }
+
+  .vip-flight-img-text {
+    font-size: 9.5rem;
+  }
+
+  .helicopter-rental-wrapper h3 {
+    text-wrap: wrap;
+  }
+
+  /* About company */
+
+  .highlight-number,
+  .highlight-symbol {
+    font-size: 3rem;
+  }
+}
