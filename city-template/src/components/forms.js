@@ -1,8 +1,8 @@
-const forms = (container = document) => {
-  const form = container.querySelectorAll("form"),
-    inputs = container.querySelectorAll("input");
+import { createAndShowModal, closeModal } from "./modals";
 
-  const lang = document.documentElement.lang || "en";
+const forms = (container = document) => {
+  const forms = container.querySelectorAll("form"),
+    inputs = container.querySelectorAll("input");
 
   const messages = {
     ru: {
@@ -15,16 +15,19 @@ const forms = (container = document) => {
     },
   };
 
-  const message = messages[lang] || messages.en;
+  const rawLang = document.documentElement.lang;
+  const lang = rawLang ? rawLang.toLowerCase().split("-")[0] : "";
+
+  const selectedLang = messages[lang] ? lang : "en";
+  const message = messages[selectedLang];
 
   const postData = async (url, data) => {
-    document.querySelector(".status").textContent = message.loading;
     let res = await fetch(url, {
       method: "POST",
       body: data,
     });
 
-    return await res.text();
+    return await res;
   };
 
   const clearInputs = () => {
@@ -33,27 +36,24 @@ const forms = (container = document) => {
     });
   };
 
-  form.forEach((item) => {
-    item.addEventListener("submit", (event) => {
+  forms.forEach((form) => {
+    form.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const formData = new FormData(item);
+      const formData = new FormData(form);
 
       formData.append("action", "submit_form");
 
-      //TO DO: Add server
-      postData("", formData)
-        .then((res) => {
-          console.log(res);
+      postData(backend["ajax_url"], formData)
+        .then(() => {
+          closeModal(5000);
+          createAndShowModal("btn-success-reply");
         })
         .catch((error) => {
           console.log(error);
         })
         .finally(() => {
           clearInputs();
-          setTimeout(() => {
-            statusMessage.remove();
-          }, 5000);
         });
     });
   });

@@ -2,222 +2,228 @@ import { default as applyInputs } from "./inputs.js";
 import { default as applyForms } from "./forms.js";
 
 import closeIcon from "/city-template/public/assets/images/modals/close-window-btn.svg";
+import successIcon from "/city-template/public/assets/images/modals/success-icon.svg";
 import dictionary from "./modals-dictionary.json";
 
-const modals = () => {
-  const language = document.documentElement.lang;
-  const messages = dictionary[language] || dictionary.en;
 
+function createElement(tag, classNames = [], innerHTML = "") {
+  const element = document.createElement(tag);
+  classNames.forEach((className) => element.classList.add(className));
+  element.innerHTML = innerHTML;
+  return element;
+};
 
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  const modalContainer = document.createElement("div");
-  modal.appendChild(modalContainer);
-
-
-  const header = document.createElement("h4");
-  const closeButton = document.createElement("button");
-  closeButton.classList.add("close-icon");
-  closeButton.innerHTML = `
-      <img src="${closeIcon}" alt="close-icon">
+function createInputContainer(
+  id,
+  type,
+  name,
+  pattern,
+  originalText,
+  errorMessage,
+  labelContent,
+) {
+  const inputContainer = createElement("div", ["input-container"]);
+  inputContainer.innerHTML = `
+    <input type="${type}" id="${id}" name="${name}" class="styled-input" 
+      ${name === "message" || name === "email" ? "" : `pattern="${pattern}"`}
+      placeholder=" " ${name === "message" ? "" : "required"}>
+    <label for="${id}" class="floating-label" 
+      data-original-text="${originalText}" 
+      data-error-message="${errorMessage}">
+      ${labelContent}
+    </label>
   `;
+  return inputContainer;
+}
 
+// Get the value of the lang attribute
+const rawLanguage = document.documentElement.lang;
+const language = rawLanguage ? rawLanguage.toLowerCase().split("-")[0] : "";
 
-  const cityList = document.createElement("ul");
-  cityList.classList.add("city-list");
-  const checkMarkIcon = `
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path class="check-mark-color" d="M20 6L9 17L4 12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-  `;
+const selectedLanguage = dictionary[language] ? language : "en";
+const messages = dictionary[selectedLanguage];
 
-  var citiesData = [];
-  var citiesLoaded = false;
+const modal = createElement("div", ["modal"]);
+const modalContainer = createElement("div");
+modal.appendChild(modalContainer);
 
-  async function loadCities() {
-    try {
-      const response = await fetch('https://avto2a.ru/wp-admin/admin-ajax.php?action=get_cities');
-      if (!response.ok) {
-          throw new Error('Network response was not ok');
-      };
-      citiesData = await response.json();
-      citiesLoaded = true;
-    } catch (error) {
-      console.error('Fetching cities failed:', error);
+const header = createElement("h4");
+const closeButton = createElement(
+  "button",
+  ["close-icon"],
+  `<img src="${closeIcon}" alt="close-icon">`,
+);
+
+// Choose city modal
+const cityList = document.createElement("ul");
+cityList.classList.add("city-list");
+const checkMarkIcon = `
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path class="check-mark-color" d="M20 6L9 17L4 12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+`;
+
+let citiesData = [];
+let citiesLoaded = false;
+let selectedCity = null;
+
+async function loadCities() {
+  try {
+    const response = await fetch(
+      "https://avto2a.ru/wp-admin/admin-ajax.php?action=get_cities",
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
     }
+    citiesData = await response.json();
+    citiesLoaded = true;
+  } catch (error) {
+    console.error("Fetching cities failed:", error);
   }
+}
 
-  function displayCities() {
-    cityList.innerHTML = "";
+function displayCities() {
+  cityList.innerHTML = "";
 
-    citiesData.forEach(city => {
-      const cityItem = document.createElement("li");
-      const cityUrl = "https://www." + city.url;
-      cityItem.setAttribute("data-url", cityUrl);
-      cityItem.classList.add("city-item");
+  citiesData.forEach((city) => {
+    const cityItem = createElement("li", ["city-item"]);
+    cityItem.dataset.url = `https://www.${city.url}`;
 
-      const cityItemButton = document.createElement("button");
-      cityItemButton.setAttribute("type", "button");
-      cityItemButton.classList.add("city-item-button");
+    const cityItemButton = createElement(
+      "button",
+      ["city-item-button"],
+      (language === "ru" ? city.name : city.name_en) + checkMarkIcon,
+    );
+    cityItemButton.type = "button";
 
-      const cityItemName = document.createTextNode(city.name);
-      cityItemButton.appendChild(cityItemName);
-
-      cityItemButton.insertAdjacentHTML('beforeend', checkMarkIcon);
-
-      cityItemButton.addEventListener("click", () => {
-        if (cityItem.classList.contains("selected")) {
-          cityItem.classList.remove("selected");
-          selectedCity = null;
-        } else {
-          document.querySelectorAll("li.selected").forEach((item) => {
-            item.classList.remove("selected");
-          });
-          cityItem.classList.add("selected");
-          selectedCity = cityItem;
-        }
-      });
-
-      cityItem.appendChild(cityItemButton);
-      cityList.appendChild(cityItem);
+    cityItemButton.addEventListener("click", () => {
+      document
+        .querySelectorAll("li.selected")
+        .forEach((item) => item.classList.remove("selected"));
+      cityItem.classList.add("selected");
+      selectedCity = cityItem;
     });
-  }
 
-  var selectedCity = null;
+    cityItem.appendChild(cityItemButton);
+    cityList.appendChild(cityItem);
+  });
+}
 
+// Get city name
+const metaTag = document.querySelector('meta[name="geo.city"]');
 
-  const form = document.createElement("form");
-  form.setAttribute("action", "/submit");
-  form.setAttribute("method", "post");
+function createFormContent(btn) {
+  modalContainer.className = "modal-container";
+  modalContainer.innerHTML = "";
+  cityList.innerHTML = "";
 
-  const userNameInput = document.createElement("div");
-  const userEmailInput = document.createElement("div");
-  const userPhoneInput = document.createElement("div");
-  const userMessageInput = document.createElement("div");
-  const hiddenInput = document.createElement("input");
-
-  userNameInput.classList.add("input-container");
-  userEmailInput.classList.add("input-container");
-  userPhoneInput.classList.add("input-container");
-  userMessageInput.classList.add("input-container");
-  hiddenInput.setAttribute("type", "hidden");
-  hiddenInput.setAttribute("name", "city");
-  hiddenInput.setAttribute("value", " ");
-
-  userNameInput.innerHTML = `
-      <input type="text"  id="name" name="name" class="styled-input"
-      pattern="[a-zA-Zа-яА-Я]{2,11}" placeholder=" " required>
-      <label for="name" class="floating-label"
-      data-original-text="${messages.address}"
-      data-error-message="${messages.addressError}">
-        ${messages.address}
-      </label>
-  `;
-  userEmailInput.innerHTML = `
-      <input type="email"  id="email" name="email" class="styled-input"
-      placeholder=" " required>
-      <label for="email" class="floating-label"
-      data-original-text="${messages.email}"
-      data-error-message="${messages.emailError}">
-        ${messages.email}
-      </label>
-  `;
-  userPhoneInput.innerHTML = `
-      <input type="tel" id="telephone" name="telephone" class="styled-input"
-      pattern="\\+?[0-9]{1,4}?[-.\\s]?(\\(?\\d{1,3}?\\)?[-.\\s]?)?[\\d-\\s]{5,10}"
-      placeholder=" " required>
-      <label for="telephone" class="floating-label"
-      data-original-text="${messages.phone}"
-      data-error-message="${messages.phoneError}">
-        ${messages.phone}
-      </label>
-  `;
-  userMessageInput.innerHTML = `
-      <input type="text"  id="message" name="message" class="styled-input"
-      placeholder=" ">
-      <label for="message" class="floating-label">
-        ${messages.message}
-      </label>
+  const hiddenInput = createElement("input");
+  hiddenInput.type = "hidden";
+  hiddenInput.name = "city";
+  hiddenInput.value = `${metaTag
+    ? metaTag.getAttribute('content')
+    : "Город не указан"}
   `;
 
-  const submitButton = document.createElement("button");
+  const form = createElement("form");
+  form.action = "/submit";
+  form.method = "post";
+
+  const userNameInput = createInputContainer(
+    "name",
+    "text",
+    "name",
+    "[a-zA-Zа-яА-Я]{2,11}",
+    messages.name,
+    messages.nameError,
+    messages.name,
+  );
+  const userPhoneInput = createInputContainer(
+    "telephone",
+    "tel",
+    "telephone",
+    "\\+?[0-9]{1,4}?[-.\\s]?(\\(?\\d{1,3}?\\)?[-.\\s]?)?[\\d-\\s]{5,10}",
+    messages.phone,
+    messages.phoneError,
+    messages.phone,
+  );
+  const userEmailInput = createInputContainer(
+    "email",
+    "email",
+    "email",
+    "",
+    messages.email,
+    messages.emailError,
+    messages.email,
+  );
+  const userMessageInput = createInputContainer(
+    "message",
+    "text",
+    "message",
+    "",
+    "",
+    "",
+    messages.message,
+  );
+
+  const submitButton = createElement("button", ["btn", "btn-primary"]);
+  const dataProcessing = createElement(
+    "p",
+    ["personal-data-processing"],
+    messages.personalDataProcessing,
+  );
+
+  const successContent = createElement("div", ["success-content"]);
   
-
-  const dataProcessing = document.createElement("p");
-  dataProcessing.classList.add("personal-data-processing");
-  dataProcessing.innerHTML = messages.personalDataProcessing;
-
-
-  function createAndShowModal(btn) {
-    modal.classList.remove("fade-out");
-    modalContainer.classList.value = "";
-    modalContainer.classList.add("modal-container");
-    modalContainer.innerHTML = "";
-
-    cityList.innerHTML = "";
-
-    form.innerHTML = "";
-    form.classList.value = "";
-
-    submitButton.removeAttribute("type");
-    submitButton.classList.value = "";
-    submitButton.classList.add("btn", "btn-primary");
-
-    switch (btn) {
-      case "btn-call-me-back":
-        header.textContent = messages.callMeBack;
+  // Configured object
+  const modalConfig = {
+    "btn-call-me-back": {
+      headerText: messages.callMeBack,
+      setup: () => {
+        submitButton.textContent = messages.callMeBack;
+        submitButton.classList.add("btn-call-me-back");
+        submitButton.type = "submit";
 
         form.classList.add("reply-form");
-
-        submitButton.classList.add("btn-call-me-back");
-        submitButton.setAttribute("type", "submit");
-        submitButton.textContent = messages.callMeBack;
-
         form.append(userNameInput, userPhoneInput, hiddenInput, submitButton);
-        modalContainer.append(header, closeButton, form, dataProcessing);
-
-        break;
-
-      case "btn-become-our-partner":
-        header.textContent = messages.becomePartner;
+      },
+      elements: [header, closeButton, form, dataProcessing],
+    },
+    "btn-become-our-partner": {
+      headerText: messages.becomePartner,
+      setup: () => {
+        submitButton.textContent = messages.callMeBack;
+        submitButton.classList.add("btn-call-me-back");
+        submitButton.type = "submit";
 
         form.classList.add("reply-form");
-
-        submitButton.classList.add("btn-call-me-back");
-        submitButton.setAttribute("type", "submit");
-        submitButton.textContent = messages.callMeBack;
-
         form.append(userNameInput, userPhoneInput, hiddenInput, submitButton);
-        modalContainer.append(header, closeButton, form, dataProcessing);
-
-        break;
-
-      case "btn-get-transfer-cost":
-        header.textContent = messages.transferCost;
-
-        form.classList.add("calculator-form");
-
-        submitButton.classList.add("btn-calculate-price");
-        submitButton.setAttribute("type", "submit");
+      },
+      elements: [header, closeButton, form, dataProcessing],
+    },
+    "btn-get-transfer-cost": {
+      headerText: messages.transferCost,
+      setup: () => {
         submitButton.textContent = messages.calculateCost;
+        submitButton.classList.add("btn-calculate-price");
+        submitButton.type = "submit";
 
+        form.classList.add("reply-form");
         form.append(
           userNameInput,
           userEmailInput,
           userPhoneInput,
           userMessageInput,
           hiddenInput,
-          submitButton,
+          submitButton
         );
-
-        modalContainer.append(header, closeButton, form, dataProcessing);
-
-        break;
-
-      case "btn-choose-city":
+      },
+      elements: [header, closeButton, form, dataProcessing],
+    },
+    "btn-choose-city": {
+      headerText: messages.chooseCity,
+      setup: () => {
         modalContainer.classList.add("choose-city-modal");
-
-        header.textContent = messages.chooseCity;
 
         if (citiesLoaded) {
           displayCities();
@@ -226,85 +232,103 @@ const modals = () => {
         }
 
         submitButton.classList.add("btn-choose-city");
-        submitButton.setAttribute("type", "button");
+        submitButton.type = "button";
         submitButton.textContent = messages.choose;
         submitButton.addEventListener("click", () => {
           if (selectedCity) {
-            const url = selectedCity.getAttribute('data-url');
-            window.location.href = url;
+            window.location.href = selectedCity.dataset.url;
           } else {
             alert(messages.chooseCityError);
           }
         });
+      },
+      elements: [header, closeButton, cityList, submitButton],
+    },
+    "btn-success-reply": {
+      headerText: messages.successfullReplyHeader,
+      setup: () => {
+        modalContainer.classList.add("modal-success-reply");
 
-        modalContainer.append(header, closeButton, cityList, submitButton);
+        successContent.innerHTML = `
+          <div class="modal-success-container">
+            <img src="${successIcon}" alt="success-icon">
+            <p class="text-success-reply">${messages.successfullReplyParagraph}</p>
+          </div>
+        `;
+      },
+      elements: [header, closeButton, successContent],
+    },
+  };
 
-        break;
+  const config = modalConfig[btn];
 
-      default:
-        console.log("There isn't such button");
+  if (config) {
+    header.textContent = config.headerText;
+    config.setup();
+    config.elements.forEach((element) => modalContainer.appendChild(element));
+  } else {
+    console.error("Unknown button type");
+  }
+}
 
-        break;
-    }
-
-    modal.classList.add("fade-in");
-    document.body.appendChild(modal);
-
+export function createAndShowModal(btn) {
+  modal.classList.remove("fade-out");
+  createFormContent(btn);
+  modal.classList.add("fade-in");
+  document.body.appendChild(modal);
+  modal.style.display = "block";
+  
+  if (btn !== "btn-success-reply") {
     applyInputs();
     applyForms();
   }
+}
 
+export function closeModal(modalCloseDelay) {
+  modal.classList.remove("fade-in");
+  modal.classList.add("fade-out");
+  setTimeout(() => (modal.style.display = "none"), modalCloseDelay);
+  setTimeout(() => modal.remove(), modalCloseDelay);
+}
 
+closeButton.addEventListener("click", () => closeModal(600));
+
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    closeModal(600);
+  }
+});
+
+loadCities();
+
+// Event Listeners
+const modals = () => {
   document
     .getElementById("btn-call-me-back")
-    .addEventListener("click", function () {
-      createAndShowModal("btn-call-me-back");
-      modal.style.display = "block";
-    });
-
+    .addEventListener("click", () => createAndShowModal("btn-call-me-back"));
   document
     .getElementById("btn-become-our-partner")
-    .addEventListener("click", function () {
-      createAndShowModal("btn-become-our-partner");
-      modal.style.display = "block";
-    });
+    .addEventListener("click", () =>
+      createAndShowModal("btn-become-our-partner"),
+    );
 
-  document.querySelectorAll(".btn-get-transfer-cost").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      createAndShowModal("btn-get-transfer-cost");
-      modal.style.display = "block";
-    });
-  });
+  document
+    .querySelectorAll(".btn-get-transfer-cost")
+    .forEach((btn) =>
+      btn.addEventListener("click", () =>
+        createAndShowModal("btn-get-transfer-cost"),
+      ),
+    );
+
   document
     .getElementById("btn-choose-city")
-    .addEventListener("click", function () {
-      createAndShowModal("btn-choose-city");
-      modal.style.display = "block";
-    });
+    .addEventListener("click", () => createAndShowModal("btn-choose-city"));
 
-
-  closeButton.addEventListener("click", () => {
-    modal.classList.remove("fade-in");
-    modal.classList.add("fade-out");
-    modal.style.display = "none";
-    setTimeout(() => {
-      modal.remove();
-    }, 500);
-  });
-
-  window.addEventListener("click", (event) => {
-    if (event.target === modal) {
-      modal.classList.remove("fade-in");
-      modal.classList.add("fade-out");
-      modal.style.display = "none";
-      setTimeout(() => {
-        modal.remove();
-      }, 500);
-    }
-  });
-  
-
-  loadCities();
+  document.querySelectorAll(".btn-order").forEach((btn) =>
+    btn.addEventListener("click", () =>
+      createAndShowModal("btn-get-transfer-cost"),
+    ),
+  );
 };
 
 export default modals;
