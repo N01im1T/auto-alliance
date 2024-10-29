@@ -50,10 +50,17 @@
   width: 100%;
 }
 
+.controls-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .controls-container {
   display: flex;
   flex-direction: row;
   column-gap: 0.5rem;
+  transition: all 0.3s ease;
 }
 
 .transport-card-goods {
@@ -64,6 +71,8 @@
   gap: 1rem;
 
   margin-bottom: 1.5rem;
+
+  transition: transform 0.3s ease;
 }
 
 .transport-card-goods-passanger,
@@ -146,5 +155,74 @@
   .transport-glide-controls h3 {
     max-width: none;
     width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .controls-container {
+    column-gap: 0rem;
+  }
+}
+
+@media (max-width: 852px) {
+  .transport-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 804px) {
+  .transport-glide-controls {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-device-width: 800px) {
+  .transport-card-container {
+    justify-items: center;
+  }
+
+  .transport-card {
+    max-width: 607px;
+    width: 100%;
+  }
+
+  .transport-img {
+    max-width: none;
+  }
+
+  .transport-description {
+    max-width: none;
+  }
+
+  .controls-slider {
+    max-width: 300px;
+  }
+
+  .controls-wrapper {
+    overflow: hidden;
+
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .transport {
+    margin: 2rem 0.5rem 0.5rem;
+    padding: 3rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls-slider {
+    max-width: 177px;
+  }
+
+  .transport-card-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .transport-card-wrapper {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
   }
 }
